@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> ToDo List </title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<section data-ng-controller="TodoController">
+	<h1>ToDo List</h1>
+	<p>A place to store the things you have to do!</p>
+
+	<input type="search" data-ng-model="search.text" placeholder="Filter Your To Dos">
+
+	<ol>
+		<li data-ng-animate="'animate'" data-ng-repeat="task in todos | filter:search:strict">
+			<label data-ng-click="task.done = !task.done">
+				<span ng-class="{ done: task.done }"><a ng-if="!task.done" href="#" >Complete</a>
+					{{ task.text }} </span>
+			</label>
+		</li>
+	</ol>
+
+	<form data-ng-submit="save()">
+		<input type="text" data-ng-model="taskName" placeholder="Add Your To Do">
+		<input type="hidden" data-ng-model="done" value="">
+		<input type="hidden" data-ng-model="index" value="">
+		<input type="submit" value="Add">
+	</form>
+
+</section>
+
+<script src="https://code.angularjs.org/1.7.8/angular.js"></script>
+<script src="app.module.js"></script>
+<script src="app.controller.js"></script>
+
+</body>
+</html>
