@@ -16,8 +16,11 @@
 
 	<ol>
 		<li data-ng-animate="'animate'" data-ng-repeat="task in todos | filter:search:strict">
-			<label data-ng-click="task.done = !task.done">
-				<span ng-class="{ done: task.done }"><a ng-if="!task.done" href="#" >Complete</a>
+
+			<!-- BJ and Lisa helped us set this up without a completeTask function in js -->
+
+			<label data-ng-click="task.completed = !task.completed">
+				<span ng-class="{ completed: task.completed }"><a ng-if="!task.completed" href="#" >Complete <span ng-hide="x" class="x">X</span></a>
 					{{ task.text }} </span>
 			</label>
 		</li>
@@ -25,14 +28,15 @@
 
 	<form data-ng-submit="save()">
 		<input type="text" data-ng-model="taskName" placeholder="Add Your To Do">
-		<input type="hidden" data-ng-model="done" value="">
+		<input type="hidden" data-ng-model="completed" value="">
 		<input type="hidden" data-ng-model="index" value="">
 		<input type="submit" value="Add">
 	</form>
 
 </section>
 
-<script src="https://code.angularjs.org/1.7.8/angular.js"></script>
+<!-- <script src="https://code.angularjs.org/1.7.8/angular.js"></script> -->
+<script src="angularjsDownload.js"></script>
 <script src="app.module.js"></script>
 <script src="app.controller.js"></script>
 

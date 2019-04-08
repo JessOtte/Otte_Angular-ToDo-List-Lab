@@ -4,41 +4,41 @@ function TodoController ($scope) {
   $scope.todos = [
     {
       text:'Walk the Dog',
-      done: false
+      completed: false
     },
     {
       text:'Go to the store',
-      done: true
+      completed: true
     },
     {
       text:'Get gas',
-      done: false
+      completed: false
     },
     {
       text:'Wash the car',
-      done: false
+      completed: false
     }
   ];
   
   $scope.save = function () {
     let taskName = $scope.taskName;
-    let done = $scope.done;
+    let completed = $scope.completed;
     let index = $scope.index;
     
     if (!taskName == undefined || !taskName == '') {
       if (!index == '') {
         $scope.todos.splice(index, 1, {
           text: taskName,
-          done: done
+          completed: completed
         });
       } else {
         $scope.todos.push({
           text: taskName,
-          done: false
+          completed: false
         });
       };
       
-      $scope.taskName = $scope.done = $scope.index = '';
+      $scope.taskName = $scope.completed = $scope.index = '';
     };
   };
   
@@ -47,7 +47,7 @@ function TodoController ($scope) {
     let count = 0;
     
     angular.forEach($scope.todos, function(task) {
-      count += task.done ? 0 : 1;
+      count += task.completed ? 0 : 1;
     });
     
     return count;
@@ -59,7 +59,7 @@ function TodoController ($scope) {
     $scope.todos = [];
     
     angular.forEach(todos, function(task) {
-      if (!task.done) $scope.todos.push(task);
+      if (!task.completed) $scope.todos.push(task);
     });
   };
 }
