@@ -28,7 +28,7 @@ a {
 	color: hotpink;
 	border: solid 1px hotpink;
 	border-radius: 5px;
-	padding: 3px 1px 3px 5px;
+	padding: 3px;
 	margin:5px;
 	text-align: center;
 }
@@ -151,10 +151,12 @@ label {
     height: 30px;
     opacity: 1;
 }
-.x {
+#x {
 	float: right;
 	text-decoration: none;
 	color: black;
 	font-size: 16px;
 	float: right;
 }
+
+

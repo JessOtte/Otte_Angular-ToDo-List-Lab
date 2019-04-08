@@ -16,15 +16,16 @@
 
 	<ol>
 		<li data-ng-animate="'animate'" data-ng-repeat="task in todos | filter:search:strict">
-
-			<!-- BJ and Lisa helped us set this up without a completeTask function in js -->
+						<!-- BJ and Lisa helped us set this up without a completeTask function in js -->
 
 			<label data-ng-click="task.completed = !task.completed">
-				<span ng-class="{ completed: task.completed }"><a ng-if="!task.completed" href="#" >Complete <span ng-hide="x" class="x">X</span></a>
+				<span ng-class="{ completed: task.completed }"><a ng-if="!task.completed" href="#" >Complete</a>
 					{{ task.text }} </span>
+					<span id="x" ng-click="removeTask(task)">X</span>
 			</label>
 		</li>
 	</ol>
+	
 
 	<form data-ng-submit="save()">
 		<input type="text" data-ng-model="taskName" placeholder="Add Your To Do">
