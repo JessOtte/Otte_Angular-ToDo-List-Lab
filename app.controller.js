@@ -70,7 +70,7 @@ function TodoController ($scope) {
   };
 
   $scope.removeTask = function() {
-    var oldList = $scope.todos;
+    let oldList = $scope.todos;
     $scope.todos = [];
     angular.forEach(oldList, function(x) {
         if (!x.completed) $scope.todos.push(x);
